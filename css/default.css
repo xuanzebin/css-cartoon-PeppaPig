@@ -147,10 +147,11 @@ body{
     opacity: 1;
 }
 .speaking>pre{
-    font-size:22px;
+    /* align-content:  */
+    font-size:20px;
     font-family:方正舒体;
 }
 .speaking span{
-    font-size:22px;
+    font-size:20px;
     color:#EE5253;
 }
