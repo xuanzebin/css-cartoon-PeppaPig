@@ -113,3 +113,44 @@ body{
     position:relative;
     z-index:2;
 }
+.speaking{
+    opacity: 0;
+    display: none;
+    position: absolute;
+    width:265px;
+    height:95px;
+    border:4px #E795C0 solid;
+    background:white;
+    top:-113px; right:142%;
+}
+.speaking::before{
+    content:'';
+    display:block;
+    border:25px transparent solid;
+    border-top-color:#E795C0;
+    position:absolute;
+    top:100%;
+    right:25px;
+}
+.speaking::after{
+    content:'';
+    display:block;
+    border:21px transparent solid;
+    border-top-color:white;
+    position:absolute;
+    top:100%;
+    right:29px;
+    margin-top:-1px;
+}
+.speaking.active{
+    display:block;
+    opacity: 1;
+}
+.speaking>pre{
+    font-size:22px;
+    font-family:方正舒体;
+}
+.speaking span{
+    font-size:28px;
+    color:#EE5253;
+}
