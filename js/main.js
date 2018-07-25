@@ -1,6 +1,11 @@
 !function(){
 
-let result=`.wrapper{
+let result=`#code{
+    padding:20px;
+    background:#FFC4E0;
+    font-family:Monaco;
+}
+.wrapper{
     background:#89B9F7;
     height:inherit;
     display:flex;
@@ -8,6 +13,17 @@ let result=`.wrapper{
     align-items:center;
     z-index:-10
 }
+/* 高亮一下代码 */
+.token.selector{
+    color:#690;
+}
+.token.property{
+    color:#905;
+}
+.token.function{
+    color:#DD4A68;
+}
+
 .PeppaPig{
     position:relative;
 }
@@ -18,7 +34,6 @@ let result=`.wrapper{
     background:#FFC4E0;
     -webkit-border-radius:55%;
     border-radius:55% 45% 45% 55%/60% 55% 45% 40%;
-    /* transform:rotate(15deg); */
     position:relative;
 }
 .eye{
@@ -176,32 +191,6 @@ let result=`.wrapper{
     bottom:80px;
     margin-bottom:41px;
 }
-.hand.left::before{
-    content:'';
-    display:block;
-    width:22px;
-    height:7px;
-    background:#FFC4E0;
-    border-radius:5px;
-    position:absolute;
-    left:0;
-    top:0;
-    transform-origin:right center;
-    transform:rotate(50deg);
-}
-.hand.left::after{
-    content:'';
-    display:block;
-    width:22px;
-    height:7px;
-    background:#FFC4E0;
-    border-radius:5px;
-    position:absolute;
-    left:0;
-    top:0;
-    transform-origin:right center;
-    transform:rotate(-50deg);
-}
 .hand.right{
     position:absolute;
     left:88%;
@@ -209,33 +198,14 @@ let result=`.wrapper{
     transform-origin:left center;
     transform:rotate(30deg);
     margin-bottom:41px;
-}    
-.hand.right::before{
-    content:'';
-    display:block;
-    width:22px;
-    height:7px;
-    background:#FFC4E0;
-    border-radius:5px;
-    position:absolute;
-    right:0;
-    top:0;
-    transform-origin:left center;
-    transform:rotate(50deg);
-}
+}   
+.hand.left::before,
+.hand.left::after,
+.hand.right::before,
 .hand.right::after{
-    content:'';
+    opacity: 1;
     display:block;
-    width:22px;
-    height:7px;
-    background:#FFC4E0;
-    border-radius:5px;
-    position:absolute;
-    right:0;
-    top:0;
-    transform-origin:left center;
-    transform:rotate(-50deg);
-}
+} 
 .foot{
     position:absolute;
     top:100%;
@@ -273,17 +243,33 @@ let result=`.wrapper{
     z-index:-3;
     margin-top:-23px;
 }
+/* 至此，我们的小猪佩奇就画完啦~~ */
+.PeppaPig{
+    transform:translateY(90px);
+}
+#peppapigImg{
+    display:block;
+    opacity: 1;
+}
 `
 let n=0
 let during=0
 let id=setTimeout(function fn1(){
     n+=1
-    code.innerHTML=result.substring(0,n)
+    code.innerHTML=Prism.highlight(result.substring(0,n), Prism.languages.css, 'css');
     styleCode.innerHTML=result.substring(0,n)
     code.scrollTop=code.scrollHeight
-    console.log(code.scrollTop,code.scrollHeight)
     if (n<result.length){
-        setTimeout(fn1,during)
+        id=setTimeout(fn1,during)
     }
 },during)
+
+$('.endButton').on('click',(buttonTarget)=>{
+    clearTimeout(id)
+    code.innerHTML=Prism.highlight(result.substring(0,result.length-1), Prism.languages.css, 'css');
+    styleCode.innerHTML=result.substring(0,result.length-1)
+    code.scrollTop=code.scrollHeight
+})
+
+
 }.call()

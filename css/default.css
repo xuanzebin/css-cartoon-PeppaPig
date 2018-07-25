@@ -1,4 +1,4 @@
-*{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box; transition:all 1s;}
 *::before,*::after{box-sizing:border-box;}
 body{
     display:flex;
@@ -12,3 +12,86 @@ body{
     height:100%;
     overflow:hidden;
 }
+.token.selector,
+.token.property,
+.token.function{
+    color:black;
+}
+#peppapigImg{
+    display:none;
+    position:absolute;
+    top:-160px;
+    left:50%;
+    margin-left:-138px;
+    opacity: 0;
+}
+.endButton{
+    position:fixed;
+    right:0;
+    font-size:24px;
+    font-family:黑体;
+    padding:10px;
+    margin:20px;
+    border-radius:5px;
+}
+.hand.left::before{
+    content:'';
+    display:none;
+    width:22px;
+    height:7px;
+    background:#FFC4E0;
+    border-radius:5px;
+    position:absolute;
+    left:0;
+    top:0;
+    transform-origin:right center;
+    transform:rotate(50deg);
+}
+.hand.left::after{
+    content:'';
+    display:none;
+    width:22px;
+    height:7px;
+    background:#FFC4E0;
+    border-radius:5px;
+    position:absolute;
+    left:0;
+    top:0;
+    transform-origin:right center;
+    transform:rotate(-50deg);
+}
+
+.hand.right::before{
+    content:'';
+    display:block;
+    width:22px;
+    height:7px;
+    background:#FFC4E0;
+    border-radius:5px;
+    position:absolute;
+    right:0;
+    top:0;
+    transform-origin:left center;
+    transform:rotate(50deg);
+}
+.hand.right::after{
+    content:'';
+    display:block;
+    width:22px;
+    height:7px;
+    background:#FFC4E0;
+    border-radius:5px;
+    position:absolute;
+    right:0;
+    top:0;
+    transform-origin:left center;
+    transform:rotate(-50deg);
+}
+
+.hand.left::before,
+.hand.left::after,
+.hand.right::before,
+.hand.right::after{
+    opacity: 0;
+    display:block;
+} 
