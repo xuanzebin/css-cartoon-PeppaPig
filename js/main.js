@@ -11,7 +11,6 @@ let result=`#code{
     display:flex;
     justify-content:center;
     align-items:center;
-    z-index:-10
 }
 /* 高亮一下代码 */
 .token.selector{
@@ -271,5 +270,20 @@ $('.endButton').on('click',(buttonTarget)=>{
     code.scrollTop=code.scrollHeight
 })
 
+if ('ontouchstart' in document.body) {
+    $('.head').on('touchstart',()=>{
+        $('.hand.right').addClass('active')
+    })
+    $('.head').on('touchend',()=>{
+        $('.hand.right').removeClass('active')
+    })
+} else {
+    $('.head').on('mouseenter',()=>{
+        $('.hand.right').addClass('active')
+    })
+    $('.head').on('mouseleave',()=>{
+        $('.hand.right').removeClass('active')
+    })
+}
 
 }.call()
