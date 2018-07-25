@@ -26,14 +26,14 @@ let result=`#code{
 .PeppaPig{
     position:relative;
 }
-.head{
+.mainHead{
     width:160px;
     height:160px;
     border:5px #E795C0 solid;
     background:#FFC4E0;
     -webkit-border-radius:55%;
     border-radius:55% 45% 45% 55%/60% 55% 45% 40%;
-    position:relative;
+    position:absolute;
 }
 .eye{
     width:31px;
@@ -89,7 +89,7 @@ let result=`#code{
 .nose{
     position:absolute;
     right:33%;
-    margin-top:-2px;
+    margin-top:3px;
     width:135px;
     height:95px;
     border:5px solid #E795C0;
@@ -146,13 +146,14 @@ let result=`#code{
     border:5px solid #E795C0;
     background:#FFC4E0;
     border-radius:50% 50% 20% 20%/40% 40% 60% 60%;
-    z-index:-1;
+    z-index:-1; 
 }
 .ear.right{
     position:absolute;
     right:25px;
     top:-29px;
     transform:rotate(25deg);
+    z-index:-2; 
 }
 .ear.left{
     position:absolute;
@@ -164,7 +165,7 @@ let result=`#code{
     position:relative;
     width:172px;
     height:131px;
-    
+    z-index:1;
 }
 
 .mainBody{
@@ -176,7 +177,6 @@ let result=`#code{
     position:absolute;
     top:0;
     margin-top:-41px;
-    z-index:-1;
 }
 .hand{
     width:77px;

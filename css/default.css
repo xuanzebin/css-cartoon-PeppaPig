@@ -4,6 +4,7 @@ body{
     display:flex;
     flex-direction: column; 
     height:100vh;
+    z-index:-5;
 }
 .codePaper{
     height:35%;
@@ -104,4 +105,11 @@ body{
     50%{ transform: rotate(-30deg) }
     75%{ transform: rotate(0deg) }
     100%{ transform: rotate(30deg) }
+}
+
+.head{
+    width:160px;
+    height:160px;
+    position:relative;
+    z-index:2;
 }
